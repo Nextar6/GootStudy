@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>jQuery Ajax</title>
+</head>
+<body>
+	<div id="output">
+		<h2>jQuery Ajax로 이 텍스트 변경</h2>
+	</div>
+	<button>외부 컨텐츠 가져오기</button>
+	<script type="text/javascript">
+	/* jQuery Ajax
+		JQuery는 Ajax의 다양한 기능을 사용 할 수 있음
+		jQuery Ajax메소드를 사용하면
+		서버에서 텍스트, HTML, XML 또는 JSON 요청이 가능
+		$(selector).load(URL, data, callback);
+	*/
+	$(document).ready(function(){
+		$('button').click(function(){
+			$('#output').load("01_demo_test.txt #p1");
+		});
+	});
+	
+	</script>
+</body>
+</html>

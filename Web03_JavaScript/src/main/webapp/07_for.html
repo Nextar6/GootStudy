@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>for</title>
+
+
+</head>
+<body>
+
+	<div id="output"></div>
+	<script type="text/javascript">
+		/*  자바스크립트의 전역변수, 진역변수 선언
+		 - 자바스크립트의 전역변수(global variable) :
+		 <script> 태그 안에서 선언된 변수
+		 선언된 위치와 상관없이 변수 선언 부분을 script의 첫부분으로 이동
+		 - 자바스크립트의 지역변수(local variable) :
+		 함수(function) 내부에서 선언된 변수
+		 */
+		var output = document.getElementById('output');
+		output.innerHTML += 'i = ' + i + '<br>';
+		var i = 1;
+
+		// 자바 스크립트의 반복문
+		// - 자바 문법과 동일
+		for (var x = 1; x <= 6; x++) { // var x : 는 전역변수
+			output.innerHTML = +'<h' + x + '> heading' + x + '</h' + x +'>';
+		}
+
+		function test() {
+			var n = 10;
+			output.innerHTML += 'test() 내부 : x = ' + x + '<br>';
+			output.innerHTML += 'test() 내부 : n = ' + n + '<br>';
+		}
+	</script>
+
+</body>
+</html>

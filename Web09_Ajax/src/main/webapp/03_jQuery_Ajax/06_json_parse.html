@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>JQuery Ajax JSON</title>
+</head>
+<body>
+	<p id="output"></p>
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+				console.log('test');
+					$.ajax({
+						type : "GET",
+						url : "06_json_test.txt",
+						success : function(result) {
+							console.log(result);
+							var obj = JSON.parse(result);
+							var output = $('#output');
+							var str = "";
+							str += "이름 : " + obj.name + "<br>";
+							str += "나이 : " + obj.age + "<br>";
+							for ( var x in obj.pets) {
+								str += "펫 : " + obj.pets[x].animal + ", 이름 : "
+										+ obj.pets[x].name + "<br>";
+
+							}
+							output.html(str)
+						}
+
+					}); // end ajax()
+				}); // end document
+	</script>
+</body>
+</html>

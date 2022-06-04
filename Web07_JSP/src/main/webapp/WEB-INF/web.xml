@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee;"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	version="4.0">
+	<display-name>Web07_JSP</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- 파일 경로 설정 -->
+	<context-param> <!-- context-param : 서버 내에서 사용되는 키-값 -->
+		<param-name>file-upload</param-name>
+		<param-value>C:\Users\heema\Desktop\WEB_CODES\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Web07_JSP\images
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>file-relative</param-name>
+		<param-value>C:\Users\heema\Desktop\WEB_CODES\Web07_JSP\src\main\webapp\images
+		</param-value>
+	</context-param>
+
+
+	<!-- 필터 설정 -->
+	<filter>
+		<filter-name>TestFilter</filter-name>
+		<!-- filter-mapping의 filter-name과 일치 -->
+		<filter-class>edu.web.jsp02.TestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>TestFilter</filter-name>
+		<url-pattern>/17_filter_test.jsp</url-pattern>
+		<url-pattern>/*</url-pattern> <!-- *은 존재하는 모든 하위 경로 -->
+		<url-pattern>/member/*</url-pattern> <!-- member 경로 의 모든 하위 경로 -->
+	</filter-mapping>
+</web-app>

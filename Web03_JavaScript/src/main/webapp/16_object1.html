@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Object1</title>
+</head>
+<body>
+
+	<h1>자바 스크립트 객체(object)</h1>
+	<div id="output"></div>
+	
+	<script type="text/javascript">
+		var output = document.getElementById('output');
+		
+		/* 자바 스크립트 객체 표기법 : 
+			{프로퍼티1 : 값1, 프로퍼티2 : 값2, ...} 프로퍼티 : 객체의 인덱스
+			ex) {userid : "admin", password : "admin123", email : "admin@test.com"}
+		*/
+		
+		var person = {
+				name : '토르',
+				age : 400,
+				email : 'thor@thunder.com'
+		};
+		console.log(typeof person);
+		output.innerHTML += person + '<br>';
+		output.innerHTML += '이름 : ' + person.name + '<br>';
+		output.innerHTML += '이름 : ' + person['name'] + '<br>';
+		output.innerHTML += '나이 : ' + person.age + '<br>';
+		output.innerHTML += '이메일 : ' + person.email + '<br>';
+
+		output.innerHTML += '<hr>';
+		
+		// for-in 구문을 사용한 자바스크립트 객체의 프로퍼티 접근
+		for(x in person) {
+			output.innerHTML += x + ' : ' + person[x] + '<br>';
+		}
+		
+		// 권장하지 않는 객체 생성 방법
+		var person2 = new Object();
+		person2.name = '아이언맨';
+		person2.age = '40';
+		person2.email = 'iron@tony.com';
+		
+		// 생성자 함수를 작성하고 호출
+		function Person(name, age, email){
+			this.name = name;
+			this.age = age;
+			this.email = email;
+		}
+		var p1 = new Person('유재석', 49, 'you@test.com');
+		var p2 = new Person('아이유', 28, 'iu@test.com');
+		
+		for(x in p1) {
+			output.innerHTML += x + ' : ' + p1[x] + '<br>';
+			
+		}
+		
+	</script>
+
+</body>
+</html>

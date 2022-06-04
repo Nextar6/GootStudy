@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>정보 출력</title>
+</head>
+<body>
+   <h2>아이디 출력</h2>
+   <p id="info"></p>
+
+   <script type="text/javascript">
+      $(document).ready(function(){
+         getData(); 
+         function getData() {
+            // $.get(url, callback)
+            // $.getJSON(url, data, callback) : 요청한 url에서 JSON 데이터를 리턴
+            // url : 서버의 요청 주소
+            // data : 요청과 함께 보낼 데이터(선택)
+            // callback : JSON 데이터가 리턴됐을 때 처리할 함수
+            $.getJSON(
+                  '../info.do', 
+                  function(jsonData) {
+                     console.log(jsonData);
+                     list = "";
+                     for(var x in jsonData){
+                        list += jsonData[x].userid + '<br>';
+                     }
+                     $('#info').html(list);
+                  }
+                  ); // end getJSON()
+         } // end getData()
+      }); // end document
+   </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

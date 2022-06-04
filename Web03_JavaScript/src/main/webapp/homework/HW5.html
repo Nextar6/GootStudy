@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+	<form action="GET">
+		<label for="id">아이디</label><br> <input type="text" id="id"
+			name="id" title="ID" maxlength="20"><br> <span
+			id="idMsg"></span>
+		<!-- 아이디 입력에 대한 결과를 출력하는 태그 -->
+		<br> <label for="pw">비밀번호</label><br> <input type="password"
+			id="pw" name="pw" title="PW" maxlength="16"><br> <span
+			id="pwMsg"></span> <br> <label for="pwConfirm">비밀번호 확인</label><br>
+		<input type="password" id="pwConfirm" title="PW Confirm"
+			maxlength="16"><br> <span id="pwConfirmMsg"></span> <br>
+		<label for="name">이름</label><br> <input type="text" id="name"><br>
+		<label for="birth">생년월일</label><br> <input type="date" id="birth"><br>
+		<label for="email">이메일</label><br> <input type="email" id="email"><br>
+		<input type="submit" value="가입하기"><br>
+
+	</form>
+
+	<script type="text/javascript">
+		var inputId = document.getElementById('id');
+		var inputPw = document.getElementById('pw');
+		var inputPwConfirm = document.getElementById('pwConfirm');
+
+		inputId.onblur = function() {
+			var id = inputId.value; // 입력한 데이터 값
+			console.log(id.length);
+			console.log(id);
+			if (id == "") {
+				idMsg.innerHTML = "필수정보 입니다.."
+				idMsg.style.color = 'red';
+			} else if (id.length < 5) {
+				idMsg.innerHTML = "아이디는 5 ~ 20자로 제한합니다.";
+				idMsg.style.color = 'red';
+			} else if (id == "test1") {
+				idMsg.innerHTML = "이미 사용중이거나 탈퇴한 아이디입니다."
+				idMsg.style.color = 'red';
+			}
+
+			else {
+				idMsg.innerHTML = "멋진 아이디이군요 !!!"
+				idMsg.style.color = 'blue';
+			}
+		};
+		inputPw.onblur = function() {
+			var pw = inputPw.value; // 입력한 데이터 값
+			console.log(pw);
+			if (pw == "") {
+				pwMsg.innerHTML = "필수정보 입니다.."
+				pwMsg.style.color = 'red';
+			} else if (pw.length < 8) {
+				pwMsg.innerHTML = "비밀번호는 8 ~ 16자로 제한합니다.";
+				pwMsg.style.color = 'red';
+			} else {
+				pwMsg.innerHTML = "가능한 비밀번호입니다.";
+				pwMsg.style.color = 'blue';
+			}
+		};
+
+		// 3 - 11 비밀번호 확인 다른건확인 if문으로 할때 하나 선택되면 일치까지 +해야함  
+		inputPwConfirm.onblur = function() {
+			var pwConfirm = inputPwConfirm.value; // 입력한 데이터 값
+			console.log(inputPwConfirm);
+			if (pwConfirm == "") {
+				pwConfirmMsg.innerHTML = "필수정보 입니다.."
+				pwConfirmMsg.style.color = 'red';
+			} else if (pwConfirm.length < 8) {
+				pwConfirmMsg.innerHTML = "비밀번호는 8 ~ 16자로 제한합니다.";
+				pwConfirmMsg.style.color = 'red';
+			} else if (pwConfirm == pw) {
+				pwMsg.innerHTML = "가능한 비밀번호입니다.";
+				pwMsg.style.color = 'blue';
+			} else {
+				pwConfirmMsg.innerHTML = "비밀번호가 일치하지 않습니다"
+				pwConfirmMsg.style.color = 'red';
+			}
+		};
+	</script>
+
+
+</body>
+</html>
+
+
+

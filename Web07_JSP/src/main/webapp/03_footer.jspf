@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- jspf 파일은 fragment가 추가된것 -->
+<style>
+.footer{
+	background-color: lightblue;
+	text-align: center;
+	height: 60px;
+}
+
+</style>
+<div class="footer">
+(주) 목코딩<br>
+https://www.mokcoding.co.kr<br>
+TEL: 010-1234-1234
+</div>

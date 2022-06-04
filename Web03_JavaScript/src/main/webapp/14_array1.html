@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Array</title>
+</head>
+<body>
+	<h1>자바스크립트 배열(Array)</h1>
+	<div id="output"></div>
+	
+	<script type="text/javascript">
+		var output = document.getElementById('output');
+		
+		/* 자바 스크립트에서 배열 선언/초기화 방법1:
+			var 배열이름 = [원소1, 원소2, ...];
+		*/
+		var movies = ['블랙 위도우', 'DP', '스파이더맨'];
+		for(var i = 0; i < movies.length; i++){
+			output.innerHTML += movies[i].toLowerCase() + '<br>';
+		}
+		
+		for(x in movies) {
+			output.innerHTML += ' : '+ movies[x] + '<br>';
+		}
+		/* for-in 구문 (자바의 for-each구문)
+			- for(String x : movies) {} : 자바 문법
+			- 자바스크립트의 for-in구문에서는 x는 배열의 인덱스값(배열의 값이 아님)
+			
+			배열의 선언/초기화 방법2 :
+		*/
+		var games = new Array('스타크래프트', '슈퍼마리오');
+		
+	</script>
+
+</body>
+</html>
